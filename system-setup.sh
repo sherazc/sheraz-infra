@@ -20,7 +20,10 @@ cd /mnt/sdb1/
 
 apt install net-tools
 apt install docker.io
+sudo apt-get update
+sudo apt-get install docker-compose-plugin
 docker --version
+docker compose version
 systemctl status docker
 systemctl enable docker
 # Create container, reboot system, and test if http://localhost:8080 is working
@@ -39,6 +42,13 @@ sudo ufw status
 sudo ufw app list
 sudo ufw show added
 sudo ufw status
+
+# Copy id_rsa and id_rsa.pub in ~/.ssh/
+chmod 600 ~/.ssh/id_rsa
+
+# add public key in id_rsa.pub in a new line of  ~/authorized_keys
+# Find ubuntu IP and try to login from Mac
+ssh -i /Users/sheraz/.ssh/id_rsa sheraz@10.0.0.196
 
 ############
 
@@ -61,5 +71,3 @@ cloudflared --version
 sudo cloudflared service install <TOKEN>
 # Make sure cloudflared is enabled service and token is added in the logs
 systemctl status cloudflared
-
-

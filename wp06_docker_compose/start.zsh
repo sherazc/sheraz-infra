@@ -1,2 +1,2 @@
-#!/bin/zsh
-docker-compose up -d
+#!/bin/bash
+docker compose up -d
