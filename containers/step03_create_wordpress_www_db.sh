@@ -2,6 +2,8 @@
 
 source environment_variables.sh
 
+export MYSQL_PWD="password"
+
 # Variables for MySQL credentials, container name, and database/user details
 SHERAZ_INFRA_DB_CONTAINER_NAME="sheraz-infra-db"
 WORDPRESS_WWW_DB_NAME="wordpresswwwdb"
