@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # Variables for MySQL credentials, container name, and database/user details
-MYSQL_ROOT_PASSWORD="root_password"
-CONTAINER_NAME="mysql_container_name"
-NEW_DATABASE="your_database_name"
-NEW_USER="new_user"
-NEW_PASSWORD="user_password"
+MYSQL_ROOT_PASSWORD="password"
+CONTAINER_NAME="sheraz-infra-db"
+NEW_DATABASE="wordpresswwwdb"
+NEW_USER="wordpresswwwuser"
+NEW_PASSWORD="password"
 
 # Execute SQL commands inside the container
 docker exec -i $CONTAINER_NAME mysql -u root -p$MYSQL_ROOT_PASSWORD <<EOF
