@@ -2,11 +2,6 @@
 
 source environment_variables.sh
 
-# Variables for MySQL credentials, container name, and database/user details
-SHERAZ_INFRA_DB_CONTAINER_NAME="sheraz-infra-db"
-WORDPRESS_WWW_DB_NAME="wordpresswwwdb"
-WORDPRESS_WWW_USER="wordpresswwwuser"
-
 # Execute SQL commands inside the container
 docker exec -e MYSQL_PWD=$SHERAZ_INFRA_DB_ROOT_PASSWORD -i $SHERAZ_INFRA_DB_CONTAINER_NAME mysql -u root <<EOF
 CREATE DATABASE $WORDPRESS_WWW_DB_NAME;
