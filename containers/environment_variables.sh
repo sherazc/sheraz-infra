@@ -1,0 +1,5 @@
+
+# This is the root password
+# Do not modify the variable name it is the reserve variable name used my mysql docker
+MYSQL_PWD="password"
+WORDPRESS_WWW_USER_PASSWORD="password"

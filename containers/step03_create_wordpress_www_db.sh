@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
+source environment_variables.sh
+
 # Variables for MySQL credentials, container name, and database/user details
-MYSQL_ROOT_PASSWORD="password"
-CONTAINER_NAME="sheraz-infra-db"
-NEW_DATABASE="wordpresswwwdb"
-NEW_USER="wordpresswwwuser"
-NEW_PASSWORD="password"
+SHERAZ_INFRA_DB_CONTAINER_NAME="sheraz-infra-db"
+WORDPRESS_WWW_DB_NAME="wordpresswwwdb"
+WORDPRESS_WWW_USER="wordpresswwwuser"
 
 # Execute SQL commands inside the container
-docker exec -i $CONTAINER_NAME mysql -u root -p$MYSQL_ROOT_PASSWORD <<EOF
-CREATE DATABASE $NEW_DATABASE;
-CREATE USER '$NEW_USER'@'%' IDENTIFIED BY '$NEW_PASSWORD';
-GRANT ALL PRIVILEGES ON $NEW_DATABASE.* TO '$NEW_USER'@'%';
+docker exec -i $SHERAZ_INFRA_DB_CONTAINER_NAME mysql -u root <<EOF
+CREATE DATABASE $WORDPRESS_WWW_DB_NAME;
+CREATE USER '$WORDPRESS_WWW_USER'@'%' IDENTIFIED BY '$WORDPRESS_WWW_USER_PASSWORD';
+GRANT ALL PRIVILEGES ON $WORDPRESS_WWW_DB_NAME.* TO '$WORDPRESS_WWW_USER'@'%';
 FLUSH PRIVILEGES;
 EOF
