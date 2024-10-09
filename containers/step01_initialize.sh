@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
-export data_directory=/opt/sheraz-infra/containers-data
-mkdir -p $data_directory
+
+source environment_variables.sh
+
+mkdir -p $container_data_directory
 docker network create --driver=bridge sheraz-infra-network
