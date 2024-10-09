@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-source environment_variables.sh
-
 export MYSQL_PWD="password"
+export WORDPRESS_WWW_USER_PASSWORD="password"
 
 # Variables for MySQL credentials, container name, and database/user details
 SHERAZ_INFRA_DB_CONTAINER_NAME="sheraz-infra-db"
