@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source environment_variables.sh
+source ./configurations/environment_variables.sh
 
 ###########
 # sheraz-infra-db

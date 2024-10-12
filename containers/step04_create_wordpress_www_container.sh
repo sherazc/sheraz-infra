@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source environment_variables.sh
+source ./configurations/environment_variables.sh
 
 mkdir -p $container_data_directory/wordpress_www
 
@@ -12,6 +12,7 @@ docker run -d \
 -e WORDPRESS_DB_USER=$WORDPRESS_WWW_DB_USER \
 -e WORDPRESS_DB_PASSWORD=$WORDPRESS_WWW_DB_USER_PASSWORD \
 --mount type=bind,source=$container_data_directory/wordpress_www,target=/var/www/html \
+-v ./configurations/sheraz-infra-custom-php.ini:/usr/local/etc/php/conf.d/sheraz-infra-custom-php.ini \
 -p 8000:80 \
 wordpress:6.6.2-php8.1-apache
 

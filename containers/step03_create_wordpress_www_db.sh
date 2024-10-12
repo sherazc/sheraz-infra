@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source environment_variables.sh
+source ./configurations/environment_variables.sh
 
 docker exec -e MYSQL_PWD=$SHERAZ_INFRA_DB_ROOT_PASSWORD -i $SHERAZ_INFRA_DB_CONTAINER_NAME mysql -u root <<EOF
 CREATE DATABASE $WORDPRESS_WWW_DB_NAME;

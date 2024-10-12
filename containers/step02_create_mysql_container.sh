@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-source environment_variables.sh
+source ./configurations/environment_variables.sh
 
 mkdir -p $container_data_directory/sheraz-infra-db
 
+# TODO add PHP ini to
 docker run \
   --detach \
   --name=sheraz-infra-db \
