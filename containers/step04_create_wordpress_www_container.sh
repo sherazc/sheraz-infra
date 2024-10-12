@@ -6,6 +6,7 @@ mkdir -p $container_data_directory/wordpress_www
 
 docker run -d \
 --name wordpress_www \
+--restart unless-stopped \
 --network sheraz-infra-network \
 -e WORDPRESS_DB_HOST=sheraz-infra-db:3306 \
 -e WORDPRESS_DB_NAME=$WORDPRESS_WWW_DB_NAME \

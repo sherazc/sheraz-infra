@@ -8,6 +8,7 @@ docker run \
   --detach \
   --name=sheraz-infra-db \
   -p 3306:3306 \
+  --restart unless-stopped \
   --env="MYSQL_ROOT_PASSWORD=$SHERAZ_INFRA_DB_ROOT_PASSWORD" \
   --env="MYSQL_DATABASE=$SHERAZ_INFRA_DB_NAME" \
   --env="MYSQL_USER=$SHERAZ_INFRA_DB_USER" \
