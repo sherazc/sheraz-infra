@@ -14,5 +14,6 @@ docker run \
   --env="MYSQL_USER=$SHERAZ_INFRA_DB_USER" \
   --env="MYSQL_PASSWORD=$SHERAZ_INFRA_DB_USER_PASSWORD" \
   --mount type=bind,source=$container_data_directory/sheraz-infra-db,target=/var/lib/mysql \
+  -v ./configurations/my.cnf:/etc/mysql/my.conf
   --network=sheraz-infra-network \
   mysql:9.0.1
