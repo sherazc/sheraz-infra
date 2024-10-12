@@ -71,3 +71,14 @@ cloudflared --version
 sudo cloudflared service install <TOKEN>
 # Make sure cloudflared is enabled service and token is added in the logs
 systemctl status cloudflared
+
+# Install Java
+cd /home/sheraz/dev
+wget https://download.java.net/java/GA/jdk23/3c5b90190c68498b986a97f276efd28a/37/GPL/openjdk-23_linux-x64_bin.tar.gz
+tar -xvzf openjdk-23_linux-x64_bin.tar.gz
+sudo mv /home/sheraz/dev/jdk-23 /opt/sheraz-infra/
+
+sudo update-alternatives --install /usr/bin/java java /opt/sheraz-infra/jdk-23/bin/java 100
+sudo update-alternatives --install /usr/bin/javac javac /opt/sheraz-infra/jdk-23/bin/javac 100
+update-alternatives --display java
+update-alternatives --display javac
