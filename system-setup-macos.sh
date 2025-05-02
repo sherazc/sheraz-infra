@@ -32,3 +32,10 @@ sudo systemsetup -setremotelogin on
 # Try to connect to server mac from another mac or linux machine
 ssh -i /Users/sheraz/.ssh/id_rsa sheraz@10.0.0.30
 
+######################
+# Docker file sharing
+#
+# 1. Open Docker Desktop.
+# 2. Go to Settings → Resources → File Sharing.
+# 3. Add /opt/sheraz-infra
+# 4. Click Apply & Restart.
