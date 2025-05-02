@@ -16,6 +16,8 @@ docker stop wordpress_www
 docker rm -f wordpress_www
 rm -rf $container_data_directory/wordpress_www
 
+docker stop cloudflared
+docker rm -f cloudflared
 
 docker network rm sheraz-infra-network
 

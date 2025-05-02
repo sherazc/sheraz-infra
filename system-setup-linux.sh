@@ -7,7 +7,8 @@ cd .local/share/keyrings/
 mv login.keyring login.keyring.bak
 # Next time it pops up give blank password
 
-sh -c 'wget linux.brostrend.com/install -O /tmp/install && sh /tmp/install'
+# This is for Bros Trend USB WIFI
+# sh -c 'wget linux.brostrend.com/install -O /tmp/install && sh /tmp/install'
 
 sudo swapon --show
 sudo sysctl vm.swappiness=60
@@ -48,30 +49,9 @@ chmod 600 ~/.ssh/id_rsa
 
 # add public key in id_rsa.pub in a new line of  ~/authorized_keys
 # Find ubuntu IP and try to login from Mac
-ssh -i /Users/sheraz/.ssh/id_rsa sheraz@10.0.0.196
+ssh -i /Users/sheraz/.ssh/id_rsa sheraz@10.0.0.10
 
 ############
-
-# Cloudflared - https://pkg.cloudflare.com/index.html
-# Add cloudflare gpg key
-sudo mkdir -p --mode=0755 /usr/share/keyrings
-curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
-
-# Add this repo to your apt repositories
-echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared focal main' | sudo tee /etc/apt/sources.list.d/cloudflared.list
-
-# install cloudflared
-sudo apt-get update && sudo apt-get install cloudflared
-
-# Verify cloudflared installation
-cloudflared --version
-# Goto https://one.dash.cloudflare.com/
-# Network -> Tunnels -> Create a tunnel
-# Get the service command and and the token. It will look something like this
-sudo cloudflared service install <TOKEN>
-# Make sure cloudflared is enabled service and token is added in the logs
-systemctl status cloudflared
-
 # Install Java
 cd /home/sheraz/dev
 wget https://download.java.net/java/GA/jdk23/3c5b90190c68498b986a97f276efd28a/37/GPL/openjdk-23_linux-x64_bin.tar.gz
