@@ -22,5 +22,5 @@ docker run \
   mysql:9.0.1
 
 
-echo "Installing DB.... Wait for 2 min before giving next DB command"
-sleep 2m
+echo "Installing DB.... Wait for 2 mins before giving next DB command"
+sleep 120
