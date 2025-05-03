@@ -5,6 +5,7 @@ source ./configurations/environment_variables.sh
 docker run -d \
     --name=cloudflared \
     --network=host \
+    --restart unless-stopped \
     cloudflare/cloudflared:latest tunnel \
     --no-autoupdate run \
     --token=$CLOUDFLARE_TUNNEL_TOKEN
