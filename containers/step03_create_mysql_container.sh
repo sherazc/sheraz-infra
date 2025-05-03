@@ -19,7 +19,7 @@ docker run \
   --mount type=bind,source=$container_data_directory/sheraz-infra-db,target=/var/lib/mysql \
   -v ./configurations/my.cnf:/etc/mysql/my.cnf \
   --network=sheraz-infra-network \
-  mysql:9.0.1
+  mysql:latest
 
 
 echo "Installing DB.... Wait for 2 mins before giving next DB command"

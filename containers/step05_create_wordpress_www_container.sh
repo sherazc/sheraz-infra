@@ -18,5 +18,5 @@ docker run -d \
 --mount type=bind,source=$container_data_directory/wordpress_www,target=/var/www/html \
 -v ./configurations/sheraz-infra-custom-php.ini:/usr/local/etc/php/conf.d/sheraz-infra-custom-php.ini \
 -p 8000:80 \
-wordpress:6.6.2-php8.1-apache
+wordpress:latest
 
