@@ -1,4 +1,4 @@
-container_data_directory=/opt/sheraz-infra/containers-data
+container_data_directory=~/opt/sheraz-infra/containers-data
 
 SHERAZ_INFRA_DB_CONTAINER_NAME="sheraz-infra-db"
 SHERAZ_INFRA_DB_ROOT_PASSWORD="password"

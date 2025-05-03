@@ -3,7 +3,9 @@
 source ./configurations/environment_variables.sh
 
 mkdir -p $container_data_directory/sheraz-infra-db
-chmod 777 $container_data_directory/sheraz-infra-db
+
+# this is needed if $container_data_directory is not under home directory
+# chmod 777 $container_data_directory/sheraz-infra-db
 
 docker run \
   --detach \

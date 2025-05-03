@@ -2,6 +2,18 @@
 
 source ./configurations/environment_variables.sh
 
+echo "DANGER!!!"
+echo "This will recreate $APP_EVENT_DB_USER user and $APP_EVENT_DB_NAME database"
+echo "Are you sure you want to proceed? (y/n)"
+read -r confirm
+if [[ "$confirm" =~ ^[Yy]$ ]]; then
+  echo "Continuing..."
+  # Place your command or script logic here
+else
+  echo "Aborting."
+  exit 1
+fi
+
 docker exec -e MYSQL_PWD=$SHERAZ_INFRA_DB_ROOT_PASSWORD -i $SHERAZ_INFRA_DB_CONTAINER_NAME mysql -u root <<EOF
 DROP USER '$APP_EVENT_DB_USER'@'%';
 drop database $APP_EVENT_DB_NAME;
