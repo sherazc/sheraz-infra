@@ -3,6 +3,7 @@
 source ./configurations/environment_variables.sh
 
 mkdir -p $container_data_directory/wordpress_www
+chmod 777 $container_data_directory/wordpress_www
 
 docker run -d \
 --name wordpress_www \

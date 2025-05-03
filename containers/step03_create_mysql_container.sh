@@ -3,6 +3,7 @@
 source ./configurations/environment_variables.sh
 
 mkdir -p $container_data_directory/sheraz-infra-db
+chmod 777 $container_data_directory/sheraz-infra-db
 
 docker run \
   --detach \
