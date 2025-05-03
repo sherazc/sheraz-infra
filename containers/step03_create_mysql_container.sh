@@ -20,3 +20,7 @@ docker run \
   -v ./configurations/my.cnf:/etc/mysql/my.cnf \
   --network=sheraz-infra-network \
   mysql:9.0.1
+
+
+echo "Installing DB.... Wait for 2 min before giving next DB command"
+sleep 2m
