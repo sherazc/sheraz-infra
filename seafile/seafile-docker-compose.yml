@@ -1,0 +1,53 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: seafile-mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=db_root_passwd
+      - MYSQL_USER=seafile
+      - MYSQL_PASSWORD=seafile_db_passwd
+      - MYSQL_DATABASE=ccnet_db
+    volumes:
+      - ./db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-pdb_root_passwd"]
+      interval: 20s
+      timeout: 10s
+      retries: 5
+    networks:
+      - seafile-net
+
+  memcached:
+    image: memcached:1.6
+    container_name: seafile-memcached
+    restart: unless-stopped
+    entrypoint: memcached -m 256
+    networks:
+      - seafile-net
+
+  seafile:
+    image: docker.io/seafileltd/seafile-mc:13.0.9
+    container_name: seafile
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./seafile-data:/shared
+    environment:
+      - DB_HOST=db
+      - DB_ROOT_PASSWD=db_root_passwd
+      - DB_USER=seafile
+      - DB_USER_PASSWD=seafile_db_passwd
+      - SEAFILE_SERVER_LETSENCRYPT=false
+      - SEAFILE_SERVER_HOSTNAME=192.168.x.x
+    depends_on:
+      db:
+        condition: service_healthy
+      memcached:
+        condition: service_started
+    networks:
+      - seafile-net
+
+networks:
+  seafile-net:
