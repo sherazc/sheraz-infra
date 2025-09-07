@@ -7,6 +7,15 @@ Download Seafile server and environment file
 - https://manual.seafile.com/13.0/repo/docker/ce/seafile-server.yml
 - https://manual.seafile.com/13.0/repo/docker/ce/env
 
+
+In `seafile-server.yml` file uncomment and change ports to
+
+```
+  ports:
+      - "6060:80"
+```
+
+
 Rename `env` file to `.env`
 
 In .env file:
