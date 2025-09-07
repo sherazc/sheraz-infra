@@ -15,12 +15,19 @@ In `seafile-server.yml` file uncomment and change ports to
       - "6060:80"
 ```
 
+NOTE: external drive needs to be mac native disk format. 
+In exFAT it mac create .DS_Store and ._* files. Because of the seafile will not work.
+
 
 Rename `env` file to `.env`
 
-In .env file:
-- Change variable value `BASIC_STORAGE_PATH=/Volumes/Seagate5TB/seafile-server`
-- Change variable value `SEAFILE_MYSQL_VOLUME=/Users/sheraz/dev/seafile-server-mysql-db`
+In .env file, change variable values:
+```
+BASIC_STORAGE_PATH=/Volumes/Seagate5TB/seafile-server
+SEAFILE_MYSQL_VOLUME=$BASIC_STORAGE_PATH/seafile-mysql
+SEAFILE_SERVER_HOSTNAME=10.0.0.30:6060
+JWT_PRIVATE_KEY=abc
+```
 
 
 Run `seafile-install.sh`
@@ -29,3 +36,13 @@ Run `seafile-install.sh`
 Note: these commands prevent .DS_Store files from getting created.
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
+
+
+Note: These commands sets and gets
+sudo scutil --set ComputerName "scmac15"
+sudo scutil --set HostName "scmac15"
+sudo scutil --set LocalHostName "scmac15"
+
+sudo scutil --set ComputerName "scmac15"
+sudo scutil --set HostName "scmac15"
+sudo scutil --set LocalHostName "scmac15"
