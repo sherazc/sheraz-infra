@@ -17,6 +17,8 @@ In `seafile-server.yml` file uncomment and change ports to
 
 NOTE: external drive needs to be mac native disk format. 
 In exFAT it mac create .DS_Store and ._* files. Because of the seafile will not work.
+I have used Mac OS Extended (Journaled). It is older format and is compatible with mac 2015
+Starting 2017 APFS is the new Apple standard.
 
 
 Rename `env` file to `.env`
