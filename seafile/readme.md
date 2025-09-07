@@ -9,6 +9,14 @@ Download Seafile server and environment file
 
 Rename `env` file to `.env`
 
-Change the variable value of `BASIC_STORAGE_PATH=/Volumes/Seagate5TB/seafile`
+In .env file:
+- Change variable value `BASIC_STORAGE_PATH=/Volumes/Seagate5TB/seafile-server`
+- Change variable value `SEAFILE_MYSQL_VOLUME=/Users/sheraz/dev/seafile-server-mysql-db`
+
 
 Run `seafile-install.sh`
+
+
+Note: these commands prevent .DS_Store files from getting created.
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
