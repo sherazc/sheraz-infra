@@ -45,7 +45,8 @@ services:
     ports:
       - "6060:80"
     volumes:
-      - ${SEAFILE_VOLUME:-/opt/seafile-data}:/shared
+      # - ${SEAFILE_VOLUME:-/opt/seafile-data}:/shared
+      - ${SEAFILE_VOLUME:-/opt/seafile-data}:/
     environment:
       - SEAFILE_MYSQL_DB_HOST=${SEAFILE_MYSQL_DB_HOST:-db}
       - SEAFILE_MYSQL_DB_PORT=${SEAFILE_MYSQL_DB_PORT:-3306}
